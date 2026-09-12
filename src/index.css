@@ -1,0 +1,46 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #e9eaf2;
+  background: #11121a;
+  color-scheme: dark;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 0.65rem 1rem;
+  border: 1px solid #52556d;
+  border-radius: 8px;
+  background: #303348;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #42465f;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid #c4b5fd;
+  outline-offset: 3px;
+}

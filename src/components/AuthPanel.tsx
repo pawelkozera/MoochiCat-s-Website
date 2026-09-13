@@ -34,13 +34,15 @@ export function AuthPanel({
           <p>
             Signed in as: <strong>{nickname}</strong>
           </p>
-
+          
+          {/* 
           <p aria-live="polite">
             Role:{' '}
             <strong>
               {roleLoading ? 'Loading…' : (role === 'Admin' ? 'Streamer' : role ?? 'Unavailable')}
             </strong>
           </p>
+          */}
 
           {roleError && <p role="alert">{roleError}</p>}
 

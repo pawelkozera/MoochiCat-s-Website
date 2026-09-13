@@ -167,15 +167,15 @@
 /* A separate footer keeps the decoration clear of every date and event. */
 .calendar-mascot {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 8px;
+  justify-content: center;
+  margin-top: 16px;
   border-bottom: 3px solid var(--calendar-line);
   pointer-events: none;
 }
 
 .calendar-mascot svg {
   display: block;
-  width: clamp(120px, 22vw, 220px);
+  width: 100%;
   height: auto;
 }
 

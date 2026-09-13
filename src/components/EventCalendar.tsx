@@ -8,7 +8,7 @@ import { CalendarEventContent } from './CalendarEventContent'
 import { EventFormModal } from './EventFormModal'
 import { Modal } from './Modal'
 import { useLivestreamDays } from '../hooks/useLivestreamDays'
-import calendarCat from '../assets/calendar-cat.png'
+import calendarCat from '../assets/calendar-cats.png'
 
 type CalendarEvent = {
   id: string
@@ -386,8 +386,8 @@ export function EventCalendar({
         />
 
         <div className="calendar-mascot" aria-hidden="true">
-          {/* Frame the visible cat within the original transparent PNG. */}
-          <svg viewBox="1488 1112 413 357" focusable="false">
+          {/* Frame the cat lineup without the surrounding transparent canvas. */}
+          <svg viewBox="16 1141 1892 394" focusable="false">
             <image href={calendarCat} width="2048" height="1535" />
           </svg>
         </div>

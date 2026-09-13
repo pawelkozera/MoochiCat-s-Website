@@ -5,6 +5,7 @@ import { useAuth } from './hooks/useAuth'
 import { RecentSubmissions } from './components/RecentSubmissions'
 import './App.css'
 import './calendar.css'
+import './site-theme.css'
 
 export default function App() {
   const auth = useAuth()

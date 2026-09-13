@@ -7,6 +7,7 @@ import { supabase } from '../lib/supabase'
 import { EventFormModal } from './EventFormModal'
 import { Modal } from './Modal'
 import { useLivestreamDays } from '../hooks/useLivestreamDays'
+import calendarCat from '../assets/calendar-cat.png'
 
 type CalendarEvent = {
   id: string
@@ -313,55 +314,75 @@ export function EventCalendar({
         </p>
       )}
 
-      <FullCalendar
-        ref={calendarRef}
-        plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        locale="en"
-        firstDay={1}
-        height="auto"
-        headerToolbar={{
-          left: 'prev,next today',
-          center: 'title',
-          right: '',
-        }}
-        buttonText={{ today: 'Today' }}
-        events={loadEvents}
-        loading={setLoading}
-        eventSourceSuccess={() => {
-          setError('')
-        }}
-        eventSourceFailure={() => {
-          setError('Unable to load events. Click Refresh to try again.')
-        }}
-        dateClick={(info) => handleDayClick(info.dateStr)}
-        eventClick={(info) => {
-          setDeleteError('')
-          setSelectedEvent(
-            info.event.extendedProps.details as CalendarEvent,
-          )
-        }}
-        eventInteractive
-        dayMaxEvents={3}
-        datesSet={handleDatesSet}
-        dayCellClassNames={(info) =>
-          livestreamDays.has(toDateString(info.date))
-            ? ['livestream-day']
-            : []
-        }
-        dayCellContent={(info) => (
-          <span className="calendar-day-heading">
-            <span>{info.dayNumberText}</span>
-
-            {livestreamDays.has(toDateString(info.date)) && (
-              <span className="livestream-label">
-                <span aria-hidden="true">● </span>
-                Livestream
+      <div className="calendar-board">
+        <FullCalendar
+          ref={calendarRef}
+          plugins={[dayGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          locale="en"
+          firstDay={1}
+          fixedWeekCount={false}
+          showNonCurrentDates={false}
+          dayHeaderFormat={{ weekday: 'long' }}
+          dayHeaderContent={(info) => (
+            <span aria-label={info.text}>
+              <span className="calendar-weekday-full" aria-hidden="true">{info.text}</span>
+              <span className="calendar-weekday-short" aria-hidden="true">
+                {info.text.slice(0, 3)}
               </span>
-            )}
-          </span>
-        )}
-      />
+            </span>
+          )}
+          height="auto"
+          headerToolbar={{
+            left: 'prev,next today',
+            center: 'title',
+            right: '',
+          }}
+          buttonText={{ today: 'Today' }}
+          events={loadEvents}
+          loading={setLoading}
+          eventSourceSuccess={() => {
+            setError('')
+          }}
+          eventSourceFailure={() => {
+            setError('Unable to load events. Click Refresh to try again.')
+          }}
+          dateClick={(info) => handleDayClick(info.dateStr)}
+          eventClick={(info) => {
+            setDeleteError('')
+            setSelectedEvent(
+              info.event.extendedProps.details as CalendarEvent,
+            )
+          }}
+          eventInteractive
+          dayMaxEvents={3}
+          datesSet={handleDatesSet}
+          dayCellClassNames={(info) =>
+            livestreamDays.has(toDateString(info.date))
+              ? ['livestream-day']
+              : []
+          }
+          dayCellContent={(info) => (
+            <span className="calendar-day-heading">
+              <span className="calendar-date-number">{info.dayNumberText}</span>
+
+              {livestreamDays.has(toDateString(info.date)) && (
+                <span className="livestream-label">
+                  <span aria-hidden="true">● </span>
+                  Livestream
+                </span>
+              )}
+            </span>
+          )}
+        />
+
+        <div className="calendar-mascot" aria-hidden="true">
+          {/* Frame the visible cat within the original transparent PNG. */}
+          <svg viewBox="1488 1112 413 357" focusable="false">
+            <image href={calendarCat} width="2048" height="1535" />
+          </svg>
+        </div>
+      </div>
 
       {/* Streamers choose between adding an event and managing the marker. */}
       {!streamMode && signedIn && isStreamer && dayActionDate && (

@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef } from 'react'
 import type { ReactNode } from 'react'
 import formCats from '../assets/form-cats.png'
+import modalClose from '../assets/modal-close.png'
 import './Modal.css'
 
 type ModalProps = {
@@ -16,7 +17,6 @@ export function Modal({
   children,
   onClose,
   busy = false,
-  variant = 'default',
 }: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
@@ -33,29 +33,30 @@ export function Modal({
   return (
     <dialog
       ref={dialogRef}
-      className={variant === 'event-form' ? 'modal modal-cat-form' : 'modal'}
+      className="modal modal-cat-form"
       aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault()
         if (!busy) onClose()
       }}
     >
-      {variant === 'event-form' && (
         <svg className="modal-form-cats" viewBox="744 53 624 375" aria-hidden="true" focusable="false">
           <image href={formCats} width="2048" height="1535" />
         </svg>
-      )}
-      <div className={variant === 'event-form' ? 'modal-form-surface' : undefined}>
+      <div className="modal-form-surface">
       <header className="modal-header">
         <h2 id={titleId}>{title}</h2>
 
         <button
           type="button"
+          className="modal-close-button"
           aria-label="Close dialog"
           disabled={busy}
           onClick={onClose}
         >
-          ×
+          <svg viewBox="217 83 1376 1379" aria-hidden="true" focusable="false">
+            <image href={modalClose} width="2048" height="1535" />
+          </svg>
         </button>
       </header>
 

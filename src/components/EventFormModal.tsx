@@ -182,7 +182,7 @@ export function EventFormModal({
           />
 
           <small id="description-help">
-            Only you and users with the Streamer role can read this.
+            Only you and Lila can read this.
             {' '}{description.length}/2000
           </small>
 
@@ -197,7 +197,7 @@ export function EventFormModal({
           </label>
 
           <small id="nickname-help">
-            Users with the Streamer role can still see your nickname
+            Only Lila can see your nickname
             when this is turned off.
           </small>
         </fieldset>

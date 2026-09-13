@@ -24,7 +24,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 350px;
+  width: min(350px, 100%);
   height: var(--cats-height);
   pointer-events: none;
 }
@@ -110,4 +110,52 @@
   .modal-cat-form .modal-form-surface {
     padding: 24px 16px 16px;
   }
+}
+
+
+.modal-cat-form .modal-close-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 2px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.modal-cat-form .modal-close-button:hover:not(:disabled) {
+  background: transparent;
+  filter: brightness(1.02);
+}
+
+.modal-close-button svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.modal-cat-form .event-details dt {
+  color: #805b66;
+}
+
+.modal-cat-form .danger-button {
+  background: #f8c9cb;
+  border-color: #ce858d;
+  color: #8b2639;
+}
+
+.modal-cat-form .danger-button:hover:not(:disabled) {
+  background: #f2b4bb;
+}
+
+.modal-cat-form .livestream-action {
+  background: #ffe5a0;
+  border-color: #ddbd6d;
+  color: #775414;
+}
+
+.modal-cat-form .livestream-action:hover:not(:disabled) {
+  background: #ffda7e;
 }

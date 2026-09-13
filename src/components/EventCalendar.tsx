@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import type { DatesSetArg, EventSourceFuncArg } from '@fullcalendar/core'
 import { supabase } from '../lib/supabase'
+import { CalendarEventContent } from './CalendarEventContent'
 import { EventFormModal } from './EventFormModal'
 import { Modal } from './Modal'
 import { useLivestreamDays } from '../hooks/useLivestreamDays'
@@ -112,6 +113,12 @@ export function EventCalendar({
               }
             : event
 
+          const presetColor = visibleEvent.event_type_code === 'birthday'
+            ? '#ffa2a6'
+            : visibleEvent.event_type_code === 'achievement'
+              ? '#c7e4b7'
+              : null
+
           return {
             id: visibleEvent.id,
             title: [
@@ -125,8 +132,9 @@ export function EventCalendar({
               .join(' '),
             start: visibleEvent.event_date,
             allDay: true,
-            backgroundColor: visibleEvent.event_type_color,
-            borderColor: visibleEvent.event_type_color,
+            backgroundColor: presetColor ?? visibleEvent.event_type_color,
+            borderColor: presetColor ?? visibleEvent.event_type_color,
+            classNames: presetColor ? ['calendar-preset-event'] : [],
             textColor: '#111827',
             extendedProps: {
               details: visibleEvent,
@@ -354,6 +362,7 @@ export function EventCalendar({
               info.event.extendedProps.details as CalendarEvent,
             )
           }}
+          eventContent={CalendarEventContent}
           eventInteractive
           dayMaxEvents={3}
           datesSet={handleDatesSet}

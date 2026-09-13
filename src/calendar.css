@@ -237,3 +237,102 @@
     font-size: 0.55rem;
   }
 }
+
+
+/* Preset bars retain FullCalendar's link, keyboard and overflow behavior. */
+.calendar-section .fc .calendar-preset-event {
+  margin: 5px 3px 7px;
+  padding: 0;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.calendar-section .fc .calendar-preset-event .fc-event-main {
+  color: #493b40;
+}
+
+.calendar-preset {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 31px;
+  padding: 2px 5px 2px 0;
+}
+
+.calendar-preset-cat {
+  display: block;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  margin: -4px 0 -3px -1px;
+  pointer-events: none;
+}
+
+.calendar-preset-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+  .calendar-section .fc .calendar-preset-event {
+    margin-inline: 1px;
+  }
+
+  .calendar-preset {
+    gap: 2px;
+    min-height: 26px;
+    padding-right: 2px;
+  }
+
+  .calendar-preset-cat {
+    flex-basis: 20px;
+    width: 20px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .calendar-preset-title {
+    font-size: 0.6rem;
+  }
+}
+
+.calendar-preset-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.calendar-preset-title,
+.calendar-preset-nickname {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar-preset-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.calendar-preset-nickname {
+  color: #594850;
+  font-size: 0.65rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.calendar-preset {
+  min-height: 40px;
+  padding-block: 4px;
+}

@@ -136,6 +136,7 @@ export function EventFormModal({
 
   return (
     <Modal
+      variant="event-form"
       title={isEditing ? 'Edit event' : 'Add event'}
       onClose={onClose}
       busy={saving}

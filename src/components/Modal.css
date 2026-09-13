@@ -1,0 +1,113 @@
+/* Keep the artwork above the card while the form scrolls independently. */
+.modal.modal-cat-form {
+  --form-outline: #584744;
+  --form-paper: #f8ebe5;
+  --form-pink: #fbd2d5;
+  --form-ink: #754659;
+  --cats-height: 210px;
+  --cats-seat: 174px;
+  width: min(520px, calc(100vw - 24px));
+  max-width: none;
+  max-height: none;
+  padding: var(--cats-seat) 0 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  color: var(--form-ink);
+  color-scheme: light;
+}
+
+.modal-cat-form .modal-form-cats {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: var(--cats-height);
+  pointer-events: none;
+}
+
+.modal-cat-form .modal-form-surface {
+  max-height: calc(100dvh - var(--cats-seat) - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 28px 22px 22px;
+  border: 3px solid var(--form-outline);
+  border-radius: 16px;
+  background: var(--form-paper);
+  box-shadow: 0 16px 48px rgb(58 35 40 / 20%);
+}
+
+.modal-cat-form .modal-header h2 {
+  color: #a74f70;
+}
+
+.modal-cat-form button {
+  color: #754659;
+  border: 1px solid #d9a5b0;
+  background: var(--form-pink);
+}
+
+.modal-cat-form button:hover:not(:disabled) {
+  background: #f2bec9;
+}
+
+.modal-cat-form .modal-header button {
+  flex-shrink: 0;
+}
+
+.modal-cat-form .event-form input:not([type="checkbox"]),
+.modal-cat-form .event-form select,
+.modal-cat-form .event-form textarea {
+  border: 1px solid #d9a5b0;
+  background: #fff8f3;
+  color: #584744;
+}
+
+.modal-cat-form .event-form textarea::placeholder {
+  color: #8b7178;
+  opacity: 1;
+}
+
+.modal-cat-form .event-form small {
+  color: #805b66;
+}
+
+.modal-cat-form input[type="checkbox"] {
+  accent-color: #a74f70;
+}
+
+.modal-cat-form .modal-actions button[type="submit"] {
+  background: #a74f70;
+  border-color: #a74f70;
+  color: #fff;
+}
+
+.modal-cat-form .modal-actions button[type="submit"]:hover:not(:disabled) {
+  background: #8d3f5d;
+}
+
+.modal-cat-form .error-message {
+  color: #a12e40;
+}
+
+.modal-cat-form :focus-visible {
+  outline-color: #a74f70;
+}
+
+@media (max-width: 480px), (max-height: 700px) {
+  .modal.modal-cat-form {
+    --cats-height: 144px;
+    --cats-seat: 119px;
+  }
+
+  .modal-cat-form .modal-form-cats {
+    width: 240px;
+  }
+
+  .modal-cat-form .modal-form-surface {
+    padding: 24px 16px 16px;
+  }
+}

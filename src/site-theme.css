@@ -1,0 +1,224 @@
+/* Shared page palette; calendar and modal components own their themes. */
+:root {
+  color-scheme: light;
+  color: #754659;
+  background: #f7e4e5;
+}
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(ellipse at 10% 0%, #fff8ef 0%, transparent 55%),
+    linear-gradient(160deg, #f8e5e5 0%, #f4dce2 100%);
+  background-attachment: fixed;
+}
+
+.app-shell {
+  padding: 36px 20px 48px;
+}
+
+.app-header {
+  padding: 26px 28px;
+  border: 2px solid #efc2c6;
+  border-radius: 20px;
+  background: #fff5ef;
+  box-shadow: 0 6px 0 rgb(214 156 172 / 12%);
+  flex-wrap: wrap;
+}
+
+.app-header > div {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.app-header h1 {
+  margin-bottom: 10px;
+  color: #a74f70;
+  font-family: 'Milkyway', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.app-header p {
+  color: #805b66;
+  line-height: 1.5;
+}
+
+.app-header > div > p {
+  margin: 0;
+}
+
+.app-header section[aria-label="Your account"] {
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 300px;
+  padding: 16px 18px;
+  border: 1px solid #efc2c6;
+  border-radius: 14px;
+  background: #fce9e8;
+  overflow-wrap: anywhere;
+}
+
+.app-header section[aria-label="Your account"] p {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
+}
+
+.app-header section[aria-label="Your account"] strong {
+  color: #754659;
+}
+
+.app-header section[aria-label="Your account"] button {
+  margin-top: 4px;
+}
+
+.app-header button,
+.stream-mode-controls button,
+.recent-submissions > .feed-header button,
+.recent-submissions .feed-table button {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #d9a5b0;
+  border-radius: 10px;
+  background: #fbd2d5;
+  color: #754659;
+  font-weight: 600;
+  box-shadow: 0 2px 0 #edbcc5;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.app-header button:hover:not(:disabled),
+.stream-mode-controls button:hover:not(:disabled),
+.recent-submissions > .feed-header button:hover:not(:disabled),
+.recent-submissions .feed-table button:hover:not(:disabled) {
+  background: #f2bec9;
+  box-shadow: 0 2px 0 #dba0af;
+}
+
+.app-header button:active:not(:disabled),
+.stream-mode-controls button:active:not(:disabled),
+.recent-submissions button:active:not(:disabled) {
+  box-shadow: none;
+}
+
+.app-header :focus-visible,
+.stream-mode-controls :focus-visible,
+.recent-submissions :focus-visible {
+  outline: 3px solid #a74f70;
+  outline-offset: 3px;
+}
+
+.stream-mode-controls {
+  padding: 14px 18px;
+  border: 1px solid #efc2c6;
+  border-radius: 14px;
+  background: #fff5ef;
+}
+
+.stream-mode-controls span {
+  color: #805b66;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.stream-mode-controls button[aria-pressed="true"],
+.app-header .stream-mode-badge {
+  border: 1px solid #a9c894;
+  background: #e1efd4;
+  color: #3f613b;
+  box-shadow: none;
+}
+
+.stream-mode-controls button[aria-pressed="true"]:hover:not(:disabled) {
+  background: #d1e5bf;
+}
+
+.app-header .stream-mode-badge {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.recent-submissions {
+  border: 2px solid #efc2c6;
+  border-radius: 18px;
+  background: #fff5ef;
+  color: #754659;
+  box-shadow: 0 6px 0 rgb(214 156 172 / 10%);
+}
+
+.recent-submissions .feed-header h2 {
+  color: #a74f70;
+}
+
+.recent-submissions .feed-header p,
+.recent-submissions .feed-update-info,
+.recent-submissions .feed-caption {
+  color: #805b66;
+}
+
+.recent-submissions .feed-table th,
+.recent-submissions .feed-table td {
+  border-color: #efc2c6;
+}
+
+.recent-submissions .feed-table th {
+  background: #fbd2d5;
+  color: #754659;
+}
+
+.recent-submissions .feed-table tbody tr:hover {
+  background: #fce7e6;
+}
+
+.recent-submissions .feed-visibility {
+  background: #e1efd4;
+  color: #3f613b;
+}
+
+.recent-submissions .feed-visibility-private {
+  background: #ffebba;
+  color: #775414;
+}
+
+.app-header [role="alert"],
+.recent-submissions > .error-message {
+  color: #a12e40;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 16px 12px 32px;
+  }
+
+  .app-header {
+    padding: 20px 16px;
+    gap: 18px;
+  }
+
+  .app-header > div,
+  .app-header section[aria-label="Your account"] {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .app-header section[aria-label="Your account"] button {
+    width: 100%;
+  }
+
+  .stream-mode-controls {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header button,
+  .stream-mode-controls button,
+  .recent-submissions button {
+    transition: none;
+  }
+}

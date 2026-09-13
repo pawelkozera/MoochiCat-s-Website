@@ -14,9 +14,7 @@ type AuthPanelProps = {
 export function AuthPanel({
   signedIn,
   nickname,
-  role,
   sessionLoading,
-  roleLoading,
   roleError,
   busy,
   error,
